@@ -1,0 +1,34 @@
+.no-webp .inicio { // Se aplica cuando el navegador NO soporta imágenes en formato WebP
+    background-image: url(../../../build/img/header.jpg); // Imagen en formato JPG como alternativa
+}
+
+.webp .inicio { // Se aplica cuando el navegador SÍ soporta WebP
+    background-image: url(../../../build/img/header.webp); // Imagen optimizada en formato WebP
+}
+
+.header {
+    background-color: $grisOscuro; // Color de fondo base del header
+    padding: 1rem 0 3rem 0; // Espacio interno: arriba 1rem, abajo 3rem, sin espacio lateral
+
+    &.inicio { // Solo cuando el header tiene la clase "inicio"
+        background-position: center center; // Centra la imagen de fondo horizontal y verticalmente
+        background-size: cover; // Hace que la imagen cubra todo el contenedor sin deformarse
+        @include tablet {
+            min-height: 70rem; // Altura mínima en pantallas tipo tablet o mayores (solo en inicio)
+        }
+    }
+}
+
+.contenido-header {
+    display: flex; // Activa Flexbox
+    flex-direction: column; // Organiza los elementos uno debajo del otro
+    justify-content: space-between; // Distribuye el espacio entre los elementos
+
+    h1 {
+        text-align: left; // Alinea el texto a la izquierda
+        color: $blanco; // Color blanco para el texto
+        font-weight: $bold; // Aplica negrita definida en variables
+        line-height: 2; // Define el espacio entre líneas
+        max-width: 60rem; // Limita el ancho del texto para controlar el salto de línea
+    }
+}

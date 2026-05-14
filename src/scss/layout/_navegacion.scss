@@ -1,0 +1,99 @@
+.barra {
+    display: flex;
+    flex-direction: column; // En móvil coloca elementos uno debajo del otro
+    align-items: center; // Centra horizontalmente los elementos
+
+    @include tablet{
+        flex-direction: row; // En tablet o más grande se ponen en fila
+        justify-content: space-between; // Separa logo y menú hacia extremos opuestos
+        align-items: center; // Centra verticalmente
+    }
+}
+
+.img_brand{
+    width: 18rem; // Tamaño del logo
+}
+
+/** CONTENEDOR DERECHO **/
+.derecha{
+    display: flex;
+    flex-direction: column; // En móvil coloca dark mode y nav uno debajo del otro
+    align-items: center; // Centra contenido
+
+    @include tablet{
+        flex-direction: row; // En pantallas grandes los pone horizontalmente
+        align-items: center; // Centra verticalmente
+        gap: 2rem; // Espacio entre dark mode y navegación
+    }
+
+    .dark-mode-boton{
+        width: 3rem; // Tamaño del icono dark mode
+        filter: invert(100%); // Invierte colores para hacerlo blanco
+        cursor: pointer; // Cambia cursor a mano al pasar encima
+        margin-bottom: 1rem; // Espacio inferior en móvil
+
+        @include tablet{
+            margin-bottom: 0; // Quita espacio abajo en pantallas grandes
+        }
+    }
+}
+
+/** MENU HAMBURGUESA **/
+.mobile-menu{
+    margin-top: 1rem; // Separación del logo
+
+    @include tablet{
+        display: none; // Oculta menú hamburguesa en pantallas grandes
+    }
+
+    img{
+        width: 5rem; // Tamaño del icono hamburguesa
+        cursor: pointer; // Cursor tipo mano
+    }
+}
+
+/** NAVEGACION **/
+.navegacion{
+    display: flex;
+    flex-direction: column; // En móvil enlaces verticales
+    align-items: center; // Centra enlaces
+    gap: 1rem; // Espacio entre links
+
+    visibility: hidden; // Oculta visualmente menú
+    opacity: 0; // Hace transparente el menú
+    height: 0; // Elimina altura ocupada
+    overflow: hidden; // Evita que se vea contenido oculto
+
+    transition: opacity .3s ease; // Animación suave al mostrar
+
+    @include tablet{
+        flex-direction: row; // En pantallas grandes enlaces horizontales
+        visibility: visible; // Muestra menú
+        opacity: 1; // Visible completamente
+        height: auto; // Altura automática
+        gap: 2rem; // Más separación horizontal
+    }
+
+    a{
+        color: $blanco; // Color blanco para enlaces
+        text-decoration: none; // Quita subrayado
+        font-size: 2.2rem; // Tamaño texto móvil
+        text-align: center; // Centra texto
+
+        &:hover{
+            color: $verde; // Cambia color al pasar cursor
+        }
+
+        @include tablet{
+            font-size: 1.8rem; // Reduce tamaño en pantallas grandes
+        }
+    }
+}
+
+/** MOSTRAR MENU **/
+.mostrar{
+    visibility: visible; // Hace visible el menú
+    opacity: 1; // Lo vuelve totalmente visible
+    height: auto; // Recupera altura normal
+    margin-top: 1rem; // Espacio superior al abrir menú
+}

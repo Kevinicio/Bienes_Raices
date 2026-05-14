@@ -1,0 +1,20 @@
+.boton-amarillo{
+    @include boton($amarillo, inline-block); // Botón color amarillo con display inline-block (permite respetar ancho/alto sin ocupar toda la línea)
+}
+
+.boton-amarillo-block{
+    @include boton($amarillo, block); // Botón color amarillo con display block (ocupa todo el ancho disponible)
+}
+
+.boton-verde{
+    @include boton($verde, inline-block); // Botón color verde con display inline-block
+}
+
+.boton-rojo-block{
+    @include boton($rojo,block);
+    width: 100%;//Obligamos a que tome el 100% disponible
+}
+
+.boton-amarillo-block{
+    @include boton($amarillo,block);
+}

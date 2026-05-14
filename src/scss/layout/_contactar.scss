@@ -1,0 +1,27 @@
+.no-webp .imagen-contacto{
+    background-image: url('../../img/encuentra.jpg'); // Imagen alternativa en JPG cuando el navegador no soporta WebP
+}
+
+.webp .imagen-contacto{
+    background-image: url('../../../build/img/encuentra.webp'); // Imagen optimizada en formato WebP cuando el navegador lo soporta
+}
+
+.imagen-contacto{
+    background-position: center center; // Centra la imagen de fondo horizontal y verticalmente
+    background-size: cover; // Hace que la imagen cubra todo el contenedor sin deformarse
+    padding: $separacion * 2 0; // Aplica espacio interno arriba y abajo (el doble de la variable $separacion)
+    display: flex; // Activa Flexbox
+    flex-direction: column; // Organiza los elementos en columna (uno debajo del otro)
+    align-items: center; // Centra los elementos horizontalmente dentro del contenedor
+
+    h2{
+        font-size: 4rem; // Tamaño grande para el título
+        font-weight: $black; // Aplica grosor de fuente definido en variables
+        color: $blanco; // Color blanco para contraste con la imagen
+    }
+
+    p{
+        font-size: 1.8rem; // Tamaño de texto para el párrafo
+        color: $blanco; // Color blanco para mantener legibilidad sobre el fondo
+    }
+}

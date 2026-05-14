@@ -1,0 +1,17 @@
+@include tablet {
+    .iconos-nosotros {
+        @include grid(3, 2rem); // Crea un grid de 3 columnas con una separación de 2rem entre elementos (en pantallas tablet o mayores)
+    }
+}
+
+.icono {
+    text-align: center; // Centra horizontalmente todo el contenido del bloque
+
+    img {
+        height: 10rem; // Define una altura fija de 10rem para las imágenes
+    }
+
+    h3 {
+        text-transform: uppercase; // Convierte el texto del título a mayúsculas
+    }
+}

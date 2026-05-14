@@ -1,0 +1,20 @@
+.footer{
+    padding: $separacion / 2 0; // Aplica espacio interno arriba y abajo, sin espacio a los lados
+    background-color: $grisOscuro;
+    margin-bottom: 0;//Quitar el margen que tiene de abajo
+
+    .contenido-footer{
+        padding-top: $separacion / 2; // Agrega separación superior al contenido del footer
+    }
+
+    .navegacion{
+        visibility: visible;
+        opacity: 1;//Pasa del 0 a 1 y se vuelve a ver la nav
+        height: auto;//Para que tome el espacio que requiera
+    }
+
+    .copyright{
+        color: $blanco; // Define el color blanco para el texto
+        text-align: center; // Centra el texto horizontalmente
+    }
+}
