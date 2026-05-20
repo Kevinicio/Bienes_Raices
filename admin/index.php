@@ -10,6 +10,27 @@
     //Muestra mensaje condicional
     $resultado = $_GET['resultado'] ?? null;//El place holder "??" busca el valor 'resultado' y si no existe le asigna null
 
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        $id = $_POST['id'];//Este post no va a existir hasta que se mande el request method
+        $id = filter_var($id, FILTER_VALIDATE_INT);//Validar que es un entero el id
+        //Eliminar el archivo
+        $query = "SELECT imagen FROM propiedades WHERE id = $id";
+        $resultado = mysqli_query($db,$query);
+        $propiedad = mysqli_fetch_assoc($resultado);
+
+        unlink('../imagenes' . $propiedad['imagen']);
+
+        //Eliminar la propiedad
+        if($id){
+            $query = "DELETE FROM propiedades WHERE id = $id";
+            $resultado = mysqli_query($db,$query);
+
+            if($resultado){
+                header('location: /admin?resultado=3');
+            }
+        }
+    }
+
     //Incluye un template
     require '../includes/funciones.php';
     incluirTemplate('header');//Para pasar a la funcion si esta pagina incluye "inicio"
@@ -21,6 +42,8 @@
             <p class="alerta exito">¡Anuncio Creado Correctamente!</p>
         <?php elseif(intval($resultado) === 2): ?>
             <p class="alerta exito">¡Anuncio Actualizado Correctamente!</p>
+        <?php elseif(intval($resultado) === 3): ?>
+            <p class="alerta exito">¡Anuncio Eliminado Correctamente!</p>
         <?php endif; ?>
         <a href="/admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>
         <table class="propiedades">
